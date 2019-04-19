@@ -1,0 +1,44 @@
+to build project you must have:
+* java version > 8
+* gradle version > 4
+
+build command:
+./build.bat
+
+run command:
+./start.bat
+
+test section:
+to add entities
+
+curl -X POST \
+  http://127.0.0.1:8080/jobs \
+  -H 'Content-Type: application/xml' \
+  -H 'cache-control: no-cache' \
+  -d '<jobs>
+    <job id="3">
+        <type>t</type>
+        <user>user</user>
+        <device>dev1</device>
+        <amount>12</amount>
+    </job>
+    <job id="2">
+        <type>2t</type>
+        <user>u3ser</user>
+        <device>dev2</device>
+        <amount>212</amount>
+    </job>
+    <job id="1">
+        <type>2tу</type>
+        <user>user2</user>
+        <device>dev1</device>
+        <amount>212</amount>
+    </job>
+</jobs>'
+
+to do search:
+
+curl -X GET \
+  'http://127.0.0.1:8080/statistics?user=user&device=dev1' \
+  -H 'Content-Type: application/xml' \
+  -H 'cache-control: no-cache'
